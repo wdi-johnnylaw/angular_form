@@ -28,45 +28,60 @@
       <tr>
         <th>First name</th>
         <td>
-          <input type="text" data-ng-model="profile.first_name" auto-submit="profile" />
-          <span class="hide"></span>
+          <div>
+            <input type="text" data-ng-model="profile.first_name" auto-submit="profile" placeholder="First name" />
+            <span class="hide"></span>
+          </div>
         </td>
       </tr>
       <tr>
         <th>Last name</th>
         <td>
-          <input type="text" data-ng-model="profile.last_name" auto-submit="profile"/>
-          <span class="hide"></span>
+          <div>
+            <input type="text" data-ng-model="profile.last_name" auto-submit="profile" placeholder="Last name" />
+            <span class="hide"></span>
+          </div>
         </td>
       </tr>
       <tr>
         <th>Email</th>
         <td>
-          <input type="text" data-ng-model="profile.email" auto-submit="profile" />
-          <span class="hide"></span>
+          <div>
+            <input type="text" data-ng-model="profile.email" auto-submit="profile" placeholder="Email address" />
+            <span class="hide"></span>
+          </div>
         </td>
       </tr>
       <tr>
         <th>Phone</th>
         <td>
-          <input type="text" data-ng-model="profile.phone" auto-submit="profile"/>
-          <span class="hide"></span>
+          <div>
+            <input type="text" data-ng-model="profile.phone" auto-submit="profile" placeholder="Phone number" />
+            <span class="hide"></span>
+          </div>
         </td>
       </tr>
       <tr>
         <th>City &amp; State</th>
         <td>
-          <input class="city" type="text" data-ng-model="profile.city" auto-submit="profile"/>,
-          <span class="hide"></span>
+          <div>
+            <input class="city" type="text" data-ng-model="profile.city" auto-submit="profile" placeholder="City" />,
+            <span class="hide"></span>
+          </div>
 
-          <input class="state" type="text" data-ng-model="profile.state" auto-submit="profile"/>
-          <span class="hide"></span>
+          <div>
+            <input class="state" type="text" data-ng-model="profile.state" auto-submit="profile" placeholder="State" />
+            <span class="hide"></span>
+          </div>
         </td>
       </tr>
       <tr>
         <th>Postal code</th>
-        <td><input type="text" data-ng-model="profile.zip" auto-submit="profile"/>
-          <span class="hide"></span>
+        <td>
+          <div>
+            <input type="text" data-ng-model="profile.zip" auto-submit="profile" placeholder="Zip code" />
+            <span class="hide"></span>
+          </div>
         </td>
       </tr>
       <tr><th>Member since</th><td>{{profile.created_at | date}}</td></tr>
