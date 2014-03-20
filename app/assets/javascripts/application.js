@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require angular.min
 //= require angular-ngresource
+//= require_tree ./services
+//= require_tree ./modules
 //= require_tree .
 
 $(function() {
