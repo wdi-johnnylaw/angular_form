@@ -14,12 +14,15 @@
 ActiveRecord::Schema.define(version: 20140319165329) do
 
   create_table "friendships", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "requester_id"
+    t.integer  "requested_id"
+    t.datetime "accepted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "friendships", ["user_id"], name: "index_friendships_on_user_id"
+  add_index "friendships", ["requested_id"], name: "index_friendships_on_requested_id"
+  add_index "friendships", ["requester_id"], name: "index_friendships_on_requester_id"
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"

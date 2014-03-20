@@ -1,5 +1,8 @@
 AngularRails::Application.routes.draw do
-  resources :profiles
+  resource :profile
+  resources :friends
+
+  root to: 'dashboard#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

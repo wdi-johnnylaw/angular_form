@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require angular.min
+//= require angular-ngresource
 //= require_tree .
+
+$(function() {
+   $('.hide').hide();
+});
