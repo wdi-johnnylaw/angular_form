@@ -16,7 +16,12 @@ myApp.directive('autoSubmit', function() {
    return function(scope, element, attrs) {
       element.bind('blur', function() {
          if(scope.hasChanged) {
-            scope.submitChanges();
+            $(element).animate({ opacity: '.5' }).next('span').show();
+            scope[attrs.autoSubmit].$update(
+               scope.updateRouteId || {},
+               function() { $(element).animate({ opacity: '1' }).next('span').hide(); },
+               null
+            );
             scope.hasChanged = false;
          }
       }).bind('change', function() {
@@ -49,17 +54,4 @@ myApp.controller('FriendsCtrl', ['$scope', 'Friend', function($scope, Friend) {
 
 myApp.controller('ProfileCtrl', ['$scope', 'Profile', function($scope, Profile) {
    $scope.profile = Profile.get();
-   $scope.updateRouteId = {};
-
-   $scope.submitChanges = function() {
-      if($scope.hasChanged) {
-         var input = event.target;
-         $(input).animate({ opacity: '.5' }).next('span').show();
-         $scope.profile.$update(
-            {},
-            function() { $(input).animate({ opacity: '1' }).next('span').hide(); },
-            null
-         );
-      }
-   };
 }]);
