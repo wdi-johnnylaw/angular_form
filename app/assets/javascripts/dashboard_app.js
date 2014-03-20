@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-var dashboardApp = angular.module('MyApp', ['apiService', 'autoForm']);
+var dashboardApp = angular.module('DashboardApp', ['apiService', 'autoForm']);
 
 dashboardApp.controller('FriendsCtrl', ['$scope', 'Friend', function($scope, Friend) {
    $scope.friends = Friend.query();
