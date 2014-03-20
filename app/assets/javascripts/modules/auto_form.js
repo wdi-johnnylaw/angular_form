@@ -1,13 +1,13 @@
-var autoFormModule = angular.module('autoForm', []);
+var autoFormModule = angular.module('autoForm', ['ngResource']);
 
 autoFormModule.directive('autoSubmit', function() {
    return function(scope, element, attrs) {
       element.bind('blur', function() {
          if(scope.hasChanged) {
-            $(element).animate({ opacity: '.5' }).next('span').show();
+            $(element).next('span').show();
             scope[attrs.autoSubmit].$update(
                scope.updateRouteId || {},
-               function() { $(element).animate({ opacity: '1' }).next('span').hide(); },
+               function() { $(element).next('span').hide(); },
                null
             );
             scope.hasChanged = false;
