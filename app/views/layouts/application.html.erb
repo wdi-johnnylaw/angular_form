@@ -6,9 +6,73 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-ng-app="MyApp">
+  <section id="friends" data-ng-controller="FriendsCtrl">
+    <h2>Friends</h2>
+    <ul>
+      <li data-ng-repeat="friend in friends">
+        <a href="{{friend.url}}">
+            <img data-ng-src="{{friend.image_url}}" alt="{{friend.first_name}} {{friend.last_name}}" title="{{friend.first_name}} {{friend.last_name}}" /><br />
+            <caption>{{friend.first_name}} {{friend.last_name}}</caption>
+          </a>
+          <button data-ng-click="unfriend($index)">unfriend</button>
+      </li>
+    </ul>
+  </section>
 
-<%= yield %>
+  <section id="profile" data-ng-controller="ProfileCtrl">
+    <h2>Profile</h2>
+    <img data-ng-src="{{profile.image_url}}" alt="{{profile.first_name}} {{profile.last_name}}" title="{{profile.first_name}} {{profile.last_name}}" />
+    <table>
+      <tr><th>Username</th><td><strong>{{profile.username}}</strong></td></tr>
+      <tr>
+        <th>First name</th>
+        <td>
+          <input type="text" data-ng-model="profile.first_name" auto-submit="profile" />
+          <span class="hide"></span>
+        </td>
+      </tr>
+      <tr>
+        <th>Last name</th>
+        <td>
+          <input type="text" data-ng-model="profile.last_name" auto-submit />
+          <span class="hide"></span>
+        </td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>
+          <input type="text" data-ng-model="profile.email" auto-submit  />
+          <span class="hide"></span>
+        </td>
+      </tr>
+      <tr>
+        <th>Phone</th>
+        <td>
+          <input type="text" data-ng-model="profile.phone" auto-submit />
+          <span class="hide"></span>
+        </td>
+      </tr>
+      <tr>
+        <th>City &amp; State</th>
+        <td>
+          <input class="city" type="text" data-ng-model="profile.city" auto-submit />,
+          <span class="hide"></span>
 
+          <input class="state" type="text" data-ng-model="profile.state" auto-submit />
+          <span class="hide"></span>
+        </td>
+      </tr>
+      <tr>
+        <th>Postal code</th>
+        <td><input type="text" data-ng-model="profile.zip" auto-submit />
+          <span class="hide"></span>
+        </td>
+      </tr>
+      <tr><th>Member since</th><td>{{profile.created_at | date}}</td></tr>
+      <tr><th>Last update</th><td>{{profile.updated_at | date:"MMM dd, yyyy @ h:mma"}}</td></tr>
+    </table>
+  </section>
+  <div class="clear"></div>
 </body>
 </html>
